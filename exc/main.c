@@ -58,6 +58,13 @@ int main(int argc, char*argv[])
 	fdflag = fcntl(fd2, F_GETFD);
 	printf("fdflag of fd2 = %d, FD_CLOEXEC=%d\n", fdflag ,FD_CLOEXEC);
 
+	fdflag = fcntl(fd, F_GETFL);
+	printf("get status flag of fd = %d\n", fdflag );
+	
+	fdflag = fcntl(fd2, F_GETFL);
+	printf("get status flag of fd2 = %d, O_RDWR=%d, O_CREAT=%d\n", fdflag , O_RDWR, O_CREAT);
+	
+
 	close(fd);
 
 	rd = pread(newfd, name, 3, 2);
